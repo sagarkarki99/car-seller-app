@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpException,
   NotFoundException,
   Param,
   Patch,
@@ -10,6 +11,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './user.entity';
 import { UsersService } from './users.service';
 
 @Controller('auth')
@@ -32,14 +35,22 @@ export class UsersController {
 
   @Get()
   findAllUsers(@Query('email') email: string) {
-    console.log(email);
-
     return this.usersService.find(email);
   }
 
   @Patch('/:id')
-  updateUser(@Param('id') id: string) {}
+  updateUser(@Param('id') id: number, @Body() userDto: UpdateUserDto) {
+    return this.usersService.update(id, userDto);
+  }
 
-  @Delete()
-  removeUser(@Param('id') id: string) {}
+  @Delete('/:id')
+  removeUser(@Param('id') id: number) {
+    try {
+      return this.usersService.delete(id);
+    } catch (error) {
+      console.log(error);
+
+      throw new NotFoundException('User not found', 'NOT_FOUND');
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
@@ -23,7 +23,24 @@ export class UsersService {
     return users;
   }
 
-  update(id: number) {}
+  async update(id: number, attr: Partial<User>) {
+    const user = await this.getUser(id);
+    Object.assign(user, attr);
+    return this.repo.save(user);
+  }
 
-  delete(id: number) {}
+  async delete(id: number) {
+    const user = await this.getUser(id);
+
+    return this.repo.remove(user);
+  }
+
+  private async getUser(id: number) {
+    const user = await this.findOne(id);
+    if (!user) {
+      //Bad approach because this exception is specific to framework.
+      throw new NotFoundException('User not found!');
+    }
+    return user;
+  }
 }
