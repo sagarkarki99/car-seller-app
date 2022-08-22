@@ -12,14 +12,12 @@ export function Serialize(dto: any) {
   return UseInterceptors(new SerializeInterceptor(dto));
 }
 
-class SerializeInterceptor<T> implements NestInterceptor {
+class SerializeInterceptor implements NestInterceptor {
   constructor(private dto: any) {}
   intercept(
     context: ExecutionContext,
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
-    console.log('I am running before the route is handled', context);
-
     return next.handle().pipe(
       //seems like this wont  be called when exception is thrown.
       map((data: any) => {

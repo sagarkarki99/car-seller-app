@@ -38,3 +38,8 @@ content-type: application/json
 ### Delete user with id
 DELETE http://localhost:3000/auth/7
 content-type: application/json
+
+###
+GET http://localhost:3000/auth/currentUser
+content-type: application/json
+

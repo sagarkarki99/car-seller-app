@@ -13,6 +13,7 @@ import {
 } from '@nestjs/common';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { AuthService } from './auth/auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserDto } from './dto/user.dto';
@@ -35,6 +36,11 @@ export class UsersController {
 
     console.log('Logging success!!!');
 
+    return user;
+  }
+
+  @Get('/currentUser')
+  getCurrentUser(@CurrentUser() user: string) {
     return user;
   }
 
