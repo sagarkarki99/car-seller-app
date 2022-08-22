@@ -1,9 +1,20 @@
+### Signin user
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+    "email": "kamoddhamla.s@yopmail.com",
+    "password": "Test@123"
+}
+
+
+### Register new user
 POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-    "email": "abcf@example3.com",
-    "password": "erererererer"
+    "email": "kamoddhamla.s@yopmail.com",
+    "password": "Test@123"
 }
 
 
@@ -25,5 +36,5 @@ content-type: application/json
 }
 
 ### Delete user with id
-DELETE http://localhost:3000/auth/100
+DELETE http://localhost:3000/auth/7
 content-type: application/json
