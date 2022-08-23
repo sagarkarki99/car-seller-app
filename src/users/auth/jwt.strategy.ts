@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Scope, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { User } from '../user.entity';
@@ -21,6 +21,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
     const [user] = await this.usersService.find(payload.email);
     //any sorts of validation should be done here (I think)
+    if (!user) {
+      throw new UnauthorizedException('Token in invalid');
+    }
 
     return user;
   }
