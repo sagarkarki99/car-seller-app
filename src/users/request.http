@@ -19,7 +19,7 @@ content-type: application/json
 
 
 ### Get user
-GET http://localhost:3000/auth/3
+GET http://localhost:3000/auth/1
 content-type: application/json
 
 
@@ -42,4 +42,8 @@ content-type: application/json
 ###
 GET http://localhost:3000/auth/currentUser
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxMjU4NzAzLCJleHAiOjE2NjEyNTg4MjN9.xvH7fB2r1Hd5a8ovZZuaHEfzV1z9SGQGLY9DpgquMYU
+
+
+
 
