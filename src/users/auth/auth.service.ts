@@ -1,15 +1,26 @@
 import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
+import { stringify } from 'querystring';
 import { promisify } from 'util';
 import { User } from '../user.entity';
 import { UsersService } from '../users.service';
 
+type Token = {
+  accessToken: string;
+};
+
 const scrypt = promisify(_scrypt);
 @Injectable()
 export class AuthService {
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private jwtService: JwtService,
+  ) {}
 
-  async signIn(email: string, password: string): Promise<User> {
+  async validateUser(email: string, password: string) {}
+
+  async signIn(email: string, password: string): Promise<string> {
     const [user] = await this.userService.find(email);
     if (!user) {
       throw new BadRequestException(
@@ -28,7 +39,8 @@ export class AuthService {
       );
     }
 
-    return user;
+    const token = this.generateAccessToken(user);
+    return token;
   }
 
   async signup(email: string, password: string): Promise<User> {
@@ -40,6 +52,7 @@ export class AuthService {
     const finalPassword = await this.getEncryptedPassword(password, salt);
 
     const user = this.userService.create(email, finalPassword);
+
     return user;
   }
 
@@ -47,4 +60,13 @@ export class AuthService {
     const value = (await scrypt(password, salt, 32)) as Buffer;
     return value.toString('hex') + '.' + salt;
   }
+
+  private generateAccessToken(user: User) {
+    return this.jwtService.sign({ email: user.email, id: user.id });
+  }
 }
+
+export type UserPayload = {
+  email: string;
+  id: string;
+};

@@ -9,10 +9,13 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { AuthService } from './auth/auth.service';
+import { JwtAuthGuard } from './auth/guard/jwt-auth.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -32,15 +35,12 @@ export class UsersController {
   async signinUser(@Body() body: CreateUserDto) {
     console.log('Logging in... please wait...');
 
-    const user = await this.authService.signIn(body.email, body.password);
-
-    console.log('Logging success!!!');
-
-    return user;
+    return this.authService.signIn(body.email, body.password);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('/currentUser')
-  getCurrentUser(@CurrentUser() user: string) {
+  getCurrentUser(@CurrentUser() user: User) {
     return user;
   }
 
