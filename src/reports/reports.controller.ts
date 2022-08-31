@@ -10,7 +10,6 @@ export class ReportsController {
 
   @Post('/')
   createReport(@Body() body: CreateReportDto) {
-    this.reportsService.create(body);
-    console.log(`Saving ${body}`);
+    return this.reportsService.create(body);
   }
 }

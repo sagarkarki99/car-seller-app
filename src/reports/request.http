@@ -4,11 +4,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZ
 
 
 {
-    "maker": "Tesla",
-    "model": "G5ttr",
-    "year": 2008,
-    "mileage": 14500,
-    "lng":2.33,
-    "lat":2.22,
-    "price": 12500
+    "maker": "Toyota",
+    "model": "ss45",
+    "year": 2013,
+    "mileage": 5600,
+    "lng":1.54,
+    "lat":-2.45,
+    "price": 19000
 }
