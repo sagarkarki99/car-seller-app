@@ -1,0 +1,14 @@
+POST  http://localhost:3000/reports
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxOTMxOTk4LCJleHAiOjE2NjE5MzU1OTh9.K34jmbVcA0UQzaAfJokBbXa1Tzmj7Sc7Sd8IdriTTno
+
+
+{
+    "maker": "Tesla",
+    "model": "G5ttr",
+    "year": 2008,
+    "mileage": 14500,
+    "lng":2.33,
+    "lat":2.22,
+    "price": 12500
+}
