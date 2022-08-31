@@ -42,7 +42,8 @@ content-type: application/json
 ###
 GET http://localhost:3000/auth/currentUser
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxMjcyMTY2LCJleHAiOjE2NjEyNzU3NjZ9.OCM6BI0ng6NzCH3CrqRZYzHBaC0lXOyTM-uh2bP4F-A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxOTM5NjI5LCJleHAiOjE2NjE5NDMyMjl9.Nqwcfu5Hkd_iXHjpnY-GuqBWcxFDv8vxYAiPQD0zSlo
+
 
 
 
