@@ -1,10 +1,23 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { JwtAuthGuard } from 'src/users/auth/guard/jwt-auth.guard';
-import { CurrentUser } from 'src/users/decorators/current-user.decorator';
+import {
+  AdminUser,
+  CurrentUser,
+} from 'src/users/decorators/current-user.decorator';
 import { User } from 'src/users/user.entity';
 import { CreateReportDto } from './dtos/create-report.dto';
 import { ReportResponseDto } from './dtos/report-response.dto';
+import { AdminInterceptor } from './interceptors/admin.interceptor';
 import { ReportsService } from './reports.service';
 
 @UseGuards(JwtAuthGuard)
@@ -21,5 +34,15 @@ export class ReportsController {
   @Get('/')
   getReports(@CurrentUser() user: User) {
     return this.reportsService.getUserReports(user);
+  }
+
+  @UseInterceptors(AdminInterceptor)
+  @Patch('/:id')
+  approveReport(
+    @Param('id') id: string,
+    @AdminUser() admin,
+    @Body() body: any,
+  ) {
+    return this.reportsService.approve(parseInt(id), body.approve as boolean);
   }
 }

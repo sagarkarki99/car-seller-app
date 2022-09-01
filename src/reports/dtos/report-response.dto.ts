@@ -25,6 +25,9 @@ export class ReportResponseDto {
   @Expose()
   price: number;
 
+  @Expose()
+  approved: boolean;
+
   @Transform((params) => params.obj.user.id)
   @Expose()
   userId: number;

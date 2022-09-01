@@ -46,7 +46,11 @@ export class UsersController {
 
   @Post('/signup')
   createUser(@Body() userDto: CreateUserDto) {
-    this.authService.signup(userDto.email, userDto.password);
+    return this.authService.signup(
+      userDto.email,
+      userDto.password,
+      userDto.type,
+    );
   }
 
   @Get('/:id')

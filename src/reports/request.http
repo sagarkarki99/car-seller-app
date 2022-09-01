@@ -1,10 +1,11 @@
 POST  http://localhost:3000/reports
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxOTQzMDUzLCJleHAiOjE2NjE5NDY2NTN9.TSdZO8DSZo9asfDYwc7V_O2PcWye3-Yym_FJrTzA7U0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjYyMDIzMzE3LCJleHAiOjE2NjIwMjY5MTd9.hDB3SkxBigUSjRIyZr9jnAqFWbjbv4A5i2Wr7R4yQU0
+
 
 {
-    "maker": "birla",
-    "model": "wer45",
+    "maker": "tesla",
+    "model": "gg54",
     "year": 2013,
     "mileage": 5600,
     "lng":1.54,
@@ -16,4 +17,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZ
 ### Get report of this current user
 GET http://localhost:3000/reports/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbW9kZGhhbWxhLnNAeW9wbWFpbC5jb20iLCJpZCI6OCwiaWF0IjoxNjYxOTQzMDUzLCJleHAiOjE2NjE5NDY2NTN9.TSdZO8DSZo9asfDYwc7V_O2PcWye3-Yym_FJrTzA7U0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjYyMDIzMzE3LCJleHAiOjE2NjIwMjY5MTd9.hDB3SkxBigUSjRIyZr9jnAqFWbjbv4A5i2Wr7R4yQU0
+
+
+
+### approve reports
+PATCH http://localhost:3000/reports/2
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2NjIwMjM0MjIsImV4cCI6MTY2MjAyNzAyMn0.YxMOTPRh0fFGKuefBJixh3H-a0fwRZJ4CIRZBNLW6lk
+
+{
+    "approve": false
+}
+

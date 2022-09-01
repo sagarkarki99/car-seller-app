@@ -43,7 +43,7 @@ export class AuthService {
     return token;
   }
 
-  async signup(email: string, password: string): Promise<User> {
+  async signup(email: string, password: string, role?: string): Promise<User> {
     const users = await this.userService.find(email);
     if (users.length !== 0) {
       throw new BadRequestException('User Already Registered');
@@ -51,7 +51,7 @@ export class AuthService {
     const salt = randomBytes(8).toString('hex');
     const finalPassword = await this.getEncryptedPassword(password, salt);
 
-    const user = this.userService.create(email, finalPassword);
+    const user = this.userService.create(email, finalPassword, role);
 
     return user;
   }

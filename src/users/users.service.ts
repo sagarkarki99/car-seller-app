@@ -1,14 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import { User, UserRoles } from './user.entity';
 
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
 
-  create(email: string, password: string) {
-    const user = this.repo.create({ email, password });
+  create(email: string, password: string, type?: string) {
+    const role = getUserRole(type);
+    const user = this.repo.create({ email, password, role });
 
     return this.repo.save(user);
   }
@@ -43,4 +44,10 @@ export class UsersService {
     }
     return user;
   }
+}
+function getUserRole(type?: string): UserRoles {
+  if (type === 'admin') {
+    return UserRoles.admin;
+  }
+  return UserRoles.normal;
 }

@@ -6,3 +6,10 @@ export const CurrentUser = createParamDecorator(
     return request.user;
   },
 );
+
+export const AdminUser = createParamDecorator(
+  (data: never, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.user;
+  },
+);
