@@ -9,6 +9,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { AdminGuard } from 'src/users/auth/guard/admin.guard';
 import { JwtAuthGuard } from 'src/users/auth/guard/jwt-auth.guard';
 import {
   AdminUser,
@@ -17,7 +18,6 @@ import {
 import { User } from 'src/users/user.entity';
 import { CreateReportDto } from './dtos/create-report.dto';
 import { ReportResponseDto } from './dtos/report-response.dto';
-import { AdminInterceptor } from './interceptors/admin.interceptor';
 import { ReportsService } from './reports.service';
 
 @UseGuards(JwtAuthGuard)
@@ -36,7 +36,7 @@ export class ReportsController {
     return this.reportsService.getUserReports(user);
   }
 
-  @UseInterceptors(AdminInterceptor)
+  @UseGuards(AdminGuard)
   @Patch('/:id')
   approveReport(
     @Param('id') id: string,

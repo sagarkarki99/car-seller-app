@@ -24,7 +24,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hb
 ### approve reports
 PATCH http://localhost:3000/reports/2
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2NjIwMjM0MjIsImV4cCI6MTY2MjAyNzAyMn0.YxMOTPRh0fFGKuefBJixh3H-a0fwRZJ4CIRZBNLW6lk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2NjIwNDY2NzQsImV4cCI6MTY2MjA1MDI3NH0.5Hp7tVtgsF1ZyUtM1VnLlx9puJdxVrb6aOVKCkHzxnw
+
 
 {
     "approve": false
