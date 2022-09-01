@@ -7,6 +7,9 @@ export class Report {
   id: number;
 
   @Column()
+  maker: string;
+
+  @Column()
   model: string;
 
   @Column()
@@ -24,8 +27,8 @@ export class Report {
   @Column()
   price: number;
 
-  @Column({ default: false })
-  approved: boolean;
+  @Column({ default: null })
+  approverId?: number;
 
   @ManyToOne(() => User, (user) => user.reports)
   user: User;

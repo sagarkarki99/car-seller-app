@@ -38,11 +38,7 @@ export class ReportsController {
 
   @UseGuards(AdminGuard)
   @Patch('/:id')
-  approveReport(
-    @Param('id') id: string,
-    @AdminUser() admin,
-    @Body() body: any,
-  ) {
-    return this.reportsService.approve(parseInt(id), body.approve as boolean);
+  approveReport(@Param('id') id: string, @AdminUser() admin) {
+    return this.reportsService.approve(parseInt(id), admin);
   }
 }

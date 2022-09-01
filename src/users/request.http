@@ -1,4 +1,4 @@
-### Signin user
+### Signin admin user
 POST http://localhost:3000/auth/signin
 content-type: application/json
 
@@ -8,7 +8,27 @@ content-type: application/json
 }
 
 
-### Register new user
+### Register admin user
+POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "Test@123",
+    "type":"admin"
+}
+
+### Signin normal user
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+    "email": "normal@gmail.com",
+    "password": "Test@123"
+}
+
+
+### Register new normal user
 POST http://localhost:3000/auth/signup
 content-type: application/json
 

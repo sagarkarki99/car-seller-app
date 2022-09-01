@@ -23,12 +23,12 @@ export class ReportsService {
     return this.repo.findBy({ user: user });
   }
 
-  async approve(id: number, isApproved: boolean) {
+  async approve(id: number, approver: User) {
     const report = await this.repo.findOneBy({ id });
     if (!report) {
       throw new NotFoundException('Report not found!');
     }
-    report.approved = isApproved;
+    report.approverId = approver.id;
     return this.repo.save(report);
   }
 }
