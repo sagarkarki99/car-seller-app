@@ -5,6 +5,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -17,6 +18,7 @@ import {
 } from 'src/users/decorators/current-user.decorator';
 import { User } from 'src/users/user.entity';
 import { CreateReportDto } from './dtos/create-report.dto';
+import { GetEstimationDto } from './dtos/get-estimation.dto';
 import { ReportResponseDto } from './dtos/report-response.dto';
 import { ReportsService } from './reports.service';
 
@@ -35,6 +37,9 @@ export class ReportsController {
   getReports(@CurrentUser() user: User) {
     return this.reportsService.getUserReports(user);
   }
+
+  @Get('/')
+  getEstimation(@Query() query: GetEstimationDto) {}
 
   @UseGuards(AdminGuard)
   @Patch('/:id')
