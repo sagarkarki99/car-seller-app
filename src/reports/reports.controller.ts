@@ -34,12 +34,9 @@ export class ReportsController {
   }
 
   @Get('/')
-  getReports(@CurrentUser() user: User) {
-    return this.reportsService.getUserReports(user);
+  getEstimation(@Query() query: GetEstimationDto) {
+    console.log(query);
   }
-
-  @Get('/')
-  getEstimation(@Query() query: GetEstimationDto) {}
 
   @UseGuards(AdminGuard)
   @Patch('/:id')

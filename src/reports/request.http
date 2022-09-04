@@ -18,9 +18,12 @@ GET http://localhost:3000/reports/
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMDUxNTA2LCJleHAiOjE2NjIwNTUxMDZ9.NcEwZxZI4XO54FitAv4dUwGm63osH-5cRYVLwY6CbQM
 
-GET http://localhost:3000/reports?make=Toyota&model=ttr5&year=1995
+
+### Get estimation
+GET http://localhost:3000/reports?make=Toyota&model=ttr5&year=1995&lng=6.55&lat=2.11&mileage=8000
 content-type: application/json
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMzA1MzQ5LCJleHAiOjE2NjIzMDg5NDl9.mWbwEkDfQ_M6cUryktwcfMPdbvapvUcr8JIoQh172P4
+
 
 
 ### approve reports
