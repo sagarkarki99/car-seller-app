@@ -35,7 +35,7 @@ export class ReportsController {
 
   @Get('/')
   getEstimation(@Query() query: GetEstimationDto) {
-    console.log(query);
+    return this.reportsService.createEstimation(query);
   }
 
   @UseGuards(AdminGuard)

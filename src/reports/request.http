@@ -1,15 +1,16 @@
 POST  http://localhost:3000/reports
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMDUyMDIwLCJleHAiOjE2NjIwNTU2MjB9.c7rUFOoh0z_o0TY1JSFzSujA_71jNhCHO8tGXKi1dkA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMzA5MDcxLCJleHAiOjE2NjIzMTI2NzF9.1Hl1ghK0VMnaG0ACtioOeZOZcyxMpBABU2df8Yd0VKs
+
 
 {
-    "maker": "birla",
-    "model": "df3",
-    "year": 2013,
-    "mileage": 5600,
-    "lng":1.54,
-    "lat":-2.45,
-    "price": 2500
+    "maker": "ford",
+    "model": "mustang",
+    "year": 1982,
+    "mileage": 56000,
+    "lng":45,
+    "lat":45,
+    "price": 20000
 }
 
 
@@ -20,9 +21,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hb
 
 
 ### Get estimation
-GET http://localhost:3000/reports?make=Toyota&model=ttr5&year=1995&lng=6.55&lat=2.11&mileage=8000
+GET http://localhost:3000/reports?maker=ford&model=mustang&year=1981&lng=45&lat=45&mileage=2000
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMzA1MzQ5LCJleHAiOjE2NjIzMDg5NDl9.mWbwEkDfQ_M6cUryktwcfMPdbvapvUcr8JIoQh172P4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vcm1hbEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjYyMzA5MDcxLCJleHAiOjE2NjIzMTI2NzF9.1Hl1ghK0VMnaG0ACtioOeZOZcyxMpBABU2df8Yd0VKs
 
 
 
