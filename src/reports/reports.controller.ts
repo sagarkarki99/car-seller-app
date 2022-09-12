@@ -7,7 +7,6 @@ import {
   Post,
   Query,
   UseGuards,
-  UseInterceptors,
 } from '@nestjs/common';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { AdminGuard } from 'src/users/auth/guard/admin.guard';
