@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
-import { stringify } from 'querystring';
 import { promisify } from 'util';
 import { User } from '../user.entity';
 import { UsersService } from '../users.service';
@@ -17,8 +16,6 @@ export class AuthService {
     private userService: UsersService,
     private jwtService: JwtService,
   ) {}
-
-  async validateUser(email: string, password: string) {}
 
   async signIn(email: string, password: string): Promise<string> {
     const [user] = await this.userService.find(email);
